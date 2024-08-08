@@ -1,7 +1,7 @@
 ![body](body_med_1.png)
 # <div align="center"><b> GMAI-MMBench </b></div>
 
-[🍎 **Homepage**](https://uni-medical.github.io/GMAI-MMBench.github.io/#2023xtuner) | [**🤗 Dataset**](https://huggingface.co/datasets/myuniverse/GMAI-MMBench) | [**📖 arXiv**]() | [**:octocat: GitHub**](https://github.com/uni-medical/GMAI-MMBench) | [**🌐 OpenDataLab**](https://opendatalab.com/GMAI/MMBench)
+[🍎 **Homepage**](https://uni-medical.github.io/GMAI-MMBench.github.io/#2023xtuner) | [**🤗 Dataset**](https://huggingface.co/datasets/myuniverse/GMAI-MMBench) | [**📖 arXiv**](https://arxiv.org/abs/2408.03361) | [**:octocat: GitHub**](https://github.com/uni-medical/GMAI-MMBench) | [**🌐 OpenDataLab**](https://opendatalab.com/GMAI/MMBench)
 
 This repository is the official implementation of the paper **GMAI-MMBench: A Comprehensive Multimodal Evaluation Benchmark Towards General Medical AI**.
 
@@ -89,5 +89,13 @@ Should you encounter any data samples potentially breaching the copyright or lic
 **BibTeX:**
 
 ```bibtex
-
+@misc{chen2024gmaimmbenchcomprehensivemultimodalevaluation,
+      title={GMAI-MMBench: A Comprehensive Multimodal Evaluation Benchmark Towards General Medical AI}, 
+      author={Pengcheng Chen and Jin Ye and Guoan Wang and Yanjun Li and Zhongying Deng and Wei Li and Tianbin Li and Haodong Duan and Ziyan Huang and Yanzhou Su and Benyou Wang and Shaoting Zhang and Bin Fu and Jianfei Cai and Bohan Zhuang and Eric J Seibel and Junjun He and Yu Qiao},
+      year={2024},
+      eprint={2408.03361},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2408.03361}, 
+}
 ```
