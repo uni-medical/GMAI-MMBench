@@ -14,6 +14,49 @@ This repository is the official implementation of the paper **GMAI-MMBench: A Co
 We introduce GMAI-MMBench: the most comprehensive general medical AI benchmark with well-categorized data structure and multi-perceptual granularity to date. It is constructed from **285 datasets** across **38 medical image modalities**, **19 clinical-related tasks**, **18 departments**, and **4 perceptual granularities** in a Visual Question Answering (VQA) format. Additionally, we implemented a **lexical tree** structure that allows users to customize evaluation tasks, accommodating various assessment needs and substantially supporting medical AI research and applications. We evaluated 50 LVLMs, and the results show that even the advanced GPT-4o only achieves an accuracy of 52\%, indicating significant room for improvement. We believe GMAI-MMBench will stimulate the community to build the next generation of LVLMs toward GMAI.
 ![cover](cover.jpg)
 
+## To render an image into visualization.
+To facilitate users in testing benchmarks with VLMEvalKit, we have stored our data directly in TSV format, requiring no additional operations to use our benchmark seamlessly with this tool. To prevent data leakage, we have included an "answer" column in the VAL data, while removing the "answer" column from the Test data.
+For the "image" column, we have used Base64 encoding (to comply with [VLMEvalKit](https://github.com/open-compass/VLMEvalKit)'s requirements). The encryption code is as follows:
+```python
+image = cv2.imread(image_path, cv2.IMREAD_COLOR)
+encoded_image = encode_image_to_base64(image)
+
+def encode_image_to_base64(image):
+    """Convert image to base64 string."""
+    _, buffer = cv2.imencode('.png', image)
+    return base64.b64encode(buffer).decode()
+```
+The code for converting the Base64 format back into an image can be referenced from the official [VLMEvalKit](https://github.com/open-compass/VLMEvalKit):
+```python
+def decode_base64_to_image(base64_string, target_size=-1):
+    image_data = base64.b64decode(base64_string)
+    image = Image.open(io.BytesIO(image_data))
+    if image.mode in ('RGBA', 'P'):
+        image = image.convert('RGB')
+    if target_size > 0:
+        image.thumbnail((target_size, target_size))
+    return image
+```
+If needed, below is the official code provided by [VLMEvalKit](https://github.com/open-compass/VLMEvalKit) for converting an image to Base64 encoding:
+```python
+def encode_image_to_base64(img, target_size=-1):
+    # if target_size == -1, will not do resizing
+    # else, will set the max_size ot (target_size, target_size)
+    if img.mode in ('RGBA', 'P'):
+        img = img.convert('RGB')
+    if target_size > 0:
+        img.thumbnail((target_size, target_size))
+    img_buffer = io.BytesIO()
+    img.save(img_buffer, format='JPEG')
+    image_data = img_buffer.getvalue()
+    ret = base64.b64encode(image_data).decode('utf-8')
+    return ret
+
+
+def encode_image_file_to_base64(image_path, target_size=-1):
+    image = Image.open(image_path)
+    return encode_image_to_base64(image, target_size=target_size)
+```
 
 ## Benchmark Creation
 
