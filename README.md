@@ -61,7 +61,7 @@ def encode_image_file_to_base64(image_path, target_size=-1):
 ## Benchmark Creation
 
 GMAI-MMBench is constructed from 284 datasets across 38 medical image modalities. These datasets are derived from the public (268) and several hospitals (16) that have agreed to share their ethically approved data. The data collection can be divided into three main steps: 
-1) We search hundreds of datasets from both the public and hospitals, then keep 285 datasets with highly qualified labels after dataset filtering, uniforming image format, and standardizing label expression.
+1) We search hundreds of datasets from both the public and hospitals, then keep 284 datasets with highly qualified labels after dataset filtering, uniforming image format, and standardizing label expression.
 2) We categorize all labels into 18 clinical VQA tasks and 18 clinical departments, then export a lexical tree for easily customized evaluation.
 3) We generate QA pairs for each label from its corresponding question and option pool. Each question must include information about image modality, task cue, and corresponding annotation granularity.
 The final benchmark is obtained through additional validation and manual selection.
