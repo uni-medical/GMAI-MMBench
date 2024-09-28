@@ -7,11 +7,11 @@ This repository is the official implementation of the paper **GMAI-MMBench: A Co
 
 ## 🌈 Update
 
-- **🔥 [2024-06-05]: Submit on NeurIPS2024! 🌟**
+- **🚀[2024-09-26]: Accepted by NeurIPS 2024 Datasets and Benchmarks Track!🌟**
 
 ## Overview
 
-We introduce GMAI-MMBench: the most comprehensive general medical AI benchmark with well-categorized data structure and multi-perceptual granularity to date. It is constructed from **284 datasets** across **38 medical image modalities**, **18 clinical-related tasks**, **18 departments**, and **4 perceptual granularities** in a Visual Question Answering (VQA) format. Additionally, we implemented a **lexical tree** structure that allows users to customize evaluation tasks, accommodating various assessment needs and substantially supporting medical AI research and applications. We evaluated 50 LVLMs, and the results show that even the advanced GPT-4o only achieves an accuracy of 52\%, indicating significant room for improvement. We believe GMAI-MMBench will stimulate the community to build the next generation of LVLMs toward GMAI.
+We introduce GMAI-MMBench: the most comprehensive general medical AI benchmark with well-categorized data structure and multi-perceptual granularity to date. It is constructed from **284 datasets** across **38 medical image modalities**, **18 clinical-related tasks**, **18 departments**, and **4 perceptual granularities** in a Visual Question Answering (VQA) format. Additionally, we implemented a **lexical tree** structure that allows users to customize evaluation tasks, accommodating various assessment needs and substantially supporting medical AI research and applications. We evaluated 50 LVLMs, and the results show that even the advanced GPT-4o only achieves an accuracy of 53.53\%, indicating significant room for improvement. We believe GMAI-MMBench will stimulate the community to build the next generation of LVLMs toward GMAI.
 ![cover](cover.png)
 
 ## To render an image into visualization.
@@ -119,7 +119,7 @@ Please refer to our huggingface [**🤗 Dataset**](https://huggingface.co/datase
 ## Disclaimers
 
 The guidelines for the annotators emphasized strict compliance with copyright and licensing rules from the initial data source, specifically avoiding materials from websites that forbid copying and redistribution.
-Should you encounter any data samples potentially breaching the copyright or licensing regulations of any site, we encourage you to [contact](#contact) us. Upon verification, such samples will be promptly removed.
+Should you encounter any data samples potentially breaching the copyright or licensing regulations of any site, we encourage you to contact us. Upon verification, such samples will be promptly removed.
 
 ## Contact
 
