@@ -23,7 +23,7 @@ git clone https://github.com/open-compass/VLMEvalKit.git
 cd VLMEvalKit
 pip install -e .
 ```
-Supported models can be found in https://github.com/open-compass/VLMEvalKit/blob/main/vlmeval/config.py
+**Supported models can be found in https:**//github.com/open-compass/VLMEvalKit/blob/main/vlmeval/config.py
 
 **Code Preparation & Installation**: InstructBLIP ([LAVIS](https://github.com/salesforce/LAVIS)), LLaVA ([LLaVA](https://github.com/haotian-liu/LLaVA)), MiniGPT-4 ([MiniGPT-4](https://github.com/Vision-CAIR/MiniGPT-4)), mPLUG-Owl2 ([mPLUG-Owl2](https://github.com/X-PLUG/mPLUG-Owl/tree/main/mPLUG-Owl2)), OpenFlamingo-v2 ([OpenFlamingo](https://github.com/mlfoundations/open_flamingo)), PandaGPT-13B ([PandaGPT](https://github.com/yxuansu/PandaGPT)), TransCore-M ([TransCore-M](https://github.com/PCIResearch/TransCore-M)).
 
