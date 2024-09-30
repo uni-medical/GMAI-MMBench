@@ -14,6 +14,37 @@ This repository is the official implementation of the paper **GMAI-MMBench: A Co
 We introduce GMAI-MMBench: the most comprehensive general medical AI benchmark with well-categorized data structure and multi-perceptual granularity to date. It is constructed from **284 datasets** across **38 medical image modalities**, **18 clinical-related tasks**, **18 departments**, and **4 perceptual granularities** in a Visual Question Answering (VQA) format. Additionally, we implemented a **lexical tree** structure that allows users to customize evaluation tasks, accommodating various assessment needs and substantially supporting medical AI research and applications. We evaluated 50 LVLMs, and the results show that even the advanced GPT-4o only achieves an accuracy of 53.53\%, indicating significant room for improvement. We believe GMAI-MMBench will stimulate the community to build the next generation of LVLMs toward GMAI.
 ![cover](cover.png)
 
+## 🚗Tutorial
+This project is built upon **VLMEvalKit**. To get started:
+
+1. Visit the [VLMEvalKit Quickstart Guide](https://github.com/open-compass/VLMEvalKit/blob/main/docs/en/get_started/Quickstart.md) for installation instructions. or you can run the following command for a quick start:
+```bash
+git clone https://github.com/open-compass/VLMEvalKit.git
+cd VLMEvalKit
+pip install -e .
+```
+You can run the evaluation using either `python` or `torchrun`. Here are some examples:
+
+```bash
+# When running with `python`, only one VLM instance is instantiated, and it might use multiple GPUs (depending on its default behavior).
+# That is recommended for evaluating very large VLMs (like IDEFICS-80B-Instruct).
+
+# IDEFICS-80B-Instruct on GMAI-MMBench_VAL, Inference and Evalution
+python run.py --data GMAI-MMBench_VAL --model idefics_80b_instruct --verbose
+
+# IDEFICS-80B-Instruct on GMAI-MMBench_VAL, Inference only
+python run.py --data GMAI-MMBench_VAL --model idefics_80b_instruct --verbose --mode infer
+
+# When running with `torchrun`, one VLM instance is instantiated on each GPU. It can speed up the inference.
+# However, that is only suitable for VLMs that consume small amounts of GPU memory.
+
+# IDEFICS-9B-Instruct, Qwen-VL-Chat, mPLUG-Owl2 on GMAI-MMBench_VAL. On a node with 8 GPU. Inference and Evaluation.
+torchrun --nproc-per-node=8 run.py --data GMAI-MMBench_VAL --model idefics_80b_instruct qwen_chat mPLUG-Owl2 --verbose
+
+# Qwen-VL-Chat on GMAI-MMBench_VAL. On a node with 2 GPU. Inference and Evaluation.
+torchrun --nproc-per-node=2 run.py --data GMAI-MMBench_VAL --model qwen_chat --verbose
+```
+
 ## To render an image into visualization.
 To facilitate users in testing benchmarks with VLMEvalKit, we have stored our data directly in TSV format, requiring no additional operations to use our benchmark seamlessly with this tool. To prevent data leakage, we have included an "answer" column in the VAL data, while removing the "answer" column from the Test data.
 For the "image" column, we have used Base64 encoding (to comply with [VLMEvalKit](https://github.com/open-compass/VLMEvalKit)'s requirements). The encryption code is as follows:
