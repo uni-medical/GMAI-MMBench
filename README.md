@@ -23,6 +23,14 @@ git clone https://github.com/open-compass/VLMEvalKit.git
 cd VLMEvalKit
 pip install -e .
 ```
+Supported models can be found in https://github.com/open-compass/VLMEvalKit/blob/main/vlmeval/config.py
+
+**The following VLMs require the configuration step:**
+
+Code Preparation & Installation: InstructBLIP (LAVIS), LLaVA (LLaVA), MiniGPT-4 (MiniGPT-4), mPLUG-Owl2 (mPLUG-Owl2), OpenFlamingo-v2 (OpenFlamingo), PandaGPT-13B (PandaGPT), TransCore-M (TransCore-M).
+
+**Manual Weight Preparation & Configuration:** InstructBLIP, LLaVA-v1-7B, MiniGPT-4, PandaGPT-13B
+
 You can run the evaluation using either `python` or `torchrun`. Here are some examples:
 
 ```bash
