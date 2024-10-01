@@ -17,7 +17,7 @@ We introduce GMAI-MMBench: the most comprehensive general medical AI benchmark w
 ## 🚗Tutorial - Quick Start
 This project is built upon **VLMEvalKit**. To get started:
 
-1. Visit the [VLMEvalKit Quickstart Guide](https://github.com/open-compass/VLMEvalKit/blob/main/docs/en/get_started/Quickstart.md) for installation instructions. or you can run the following command for a quick start:
+Visit the [VLMEvalKit Quickstart Guide](https://github.com/open-compass/VLMEvalKit/blob/main/docs/en/get_started/Quickstart.md) for installation instructions. or you can run the following command for a quick start:
 ```bash
 git clone https://github.com/open-compass/VLMEvalKit.git
 cd VLMEvalKit
