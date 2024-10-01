@@ -33,7 +33,7 @@ Following VLMs require the configuration step:
 
 **Manual Weight Preparation & Configuration**: InstructBLIP, LLaVA-v1-7B, MiniGPT-4, PandaGPT-13B
 
-You can run the evaluation using either `python` or `torchrun` for **evaluation**. Here are some examples:
+**Evaluation**: You can run the evaluation using either `python` or `torchrun`. Here are some examples:
 
 ```bash
 # When running with `python`, only one VLM instance is instantiated, and it might use multiple GPUs (depending on its default behavior).
