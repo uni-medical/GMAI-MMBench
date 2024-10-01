@@ -56,6 +56,9 @@ torchrun --nproc-per-node=2 run.py --data GMAI-MMBench_VAL --model qwen_chat --v
 ```
 The evaluation results will be printed as logs, besides. **Result Files** will also be generated in the directory `$YOUR_WORKING_DIRECTORY/{model_name}`. Files ending with `.csv` contain the evaluated metrics.
 
+## Implement your model for benchmarking.
+Please follow the installation on [developer guide](https://github.com/open-compass/VLMEvalKit/blob/main/docs/en/advanced_guides/Development.md) to implement your model for **GMAI-MMBench**
+
 ## To render an image into visualization.
 To facilitate users in testing benchmarks with VLMEvalKit, we have stored our data directly in TSV format, requiring no additional operations to use our benchmark seamlessly with this tool. To prevent data leakage, we have included an "answer" column in the VAL data, while removing the "answer" column from the Test data.
 For the "image" column, we have used Base64 encoding (to comply with [VLMEvalKit](https://github.com/open-compass/VLMEvalKit)'s requirements). The encryption code is as follows:
