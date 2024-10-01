@@ -14,7 +14,7 @@ This repository is the official implementation of the paper **GMAI-MMBench: A Co
 We introduce GMAI-MMBench: the most comprehensive general medical AI benchmark with well-categorized data structure and multi-perceptual granularity to date. It is constructed from **284 datasets** across **38 medical image modalities**, **18 clinical-related tasks**, **18 departments**, and **4 perceptual granularities** in a Visual Question Answering (VQA) format. Additionally, we implemented a **lexical tree** structure that allows users to customize evaluation tasks, accommodating various assessment needs and substantially supporting medical AI research and applications. We evaluated 50 LVLMs, and the results show that even the advanced GPT-4o only achieves an accuracy of 53.53\%, indicating significant room for improvement. We believe GMAI-MMBench will stimulate the community to build the next generation of LVLMs toward GMAI.
 ![cover](cover.png)
 
-## 🚗Tutorial
+## 🚗Tutorial - quick start
 This project is built upon **VLMEvalKit**. To get started:
 
 1. Visit the [VLMEvalKit Quickstart Guide](https://github.com/open-compass/VLMEvalKit/blob/main/docs/en/get_started/Quickstart.md) for installation instructions. or you can run the following command for a quick start:
@@ -56,7 +56,7 @@ torchrun --nproc-per-node=2 run.py --data GMAI-MMBench_VAL --model qwen_chat --v
 ```
 The evaluation results will be printed as logs, besides. **Result Files** will also be generated in the directory `$YOUR_WORKING_DIRECTORY/{model_name}`. Files ending with `.csv` contain the evaluated metrics.
 
-## Implement your own model for benchmarking.
+## 🏠Implement your own model for benchmarking
 Please follow the instructions on [developer guide](https://github.com/open-compass/VLMEvalKit/blob/main/docs/en/advanced_guides/Development.md) to implement your model for **GMAI-MMBench**.
 
 ## To render an image into visualization.
