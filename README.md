@@ -15,6 +15,9 @@ We introduce GMAI-MMBench: the most comprehensive general medical AI benchmark w
 ![cover](cover.png)
 
 ## 🚗Tutorial - Quick Start
+
+**⚠️NOTE: please use numpy==1.26.4**
+
 This project is built upon **VLMEvalKit**. To get started:
 
 Visit the [VLMEvalKit Quickstart Guide](https://github.com/open-compass/VLMEvalKit/blob/main/docs/en/get_started/Quickstart.md) for installation instructions. or you can run the following command for a quick start:
