@@ -50,7 +50,7 @@ torchrun --nproc-per-node=8 run.py --data GMAI-MMBench_VAL --model idefics_80b_i
 # Qwen-VL-Chat on GMAI-MMBench_VAL. On a node with 2 GPU. Inference and Evaluation.
 torchrun --nproc-per-node=2 run.py --data GMAI-MMBench_VAL --model qwen_chat --verbose
 ```
-The evaluation results will be printed as logs, besides. Result Files will also be generated in the directory $YOUR_WORKING_DIRECTORY/{model_name}. Files ending with .csv contain the evaluated metrics.
+The evaluation results will be printed as logs, besides. **Result Files** will also be generated in the directory `$YOUR_WORKING_DIRECTORY/{model_name}`. Files ending with `.csv` contain the evaluated metrics.
 
 ## To render an image into visualization.
 To facilitate users in testing benchmarks with VLMEvalKit, we have stored our data directly in TSV format, requiring no additional operations to use our benchmark seamlessly with this tool. To prevent data leakage, we have included an "answer" column in the VAL data, while removing the "answer" column from the Test data.
