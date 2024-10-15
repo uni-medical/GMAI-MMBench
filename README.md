@@ -48,6 +48,7 @@ torchrun --nproc-per-node=8 run.py --data GMAI-MMBench_VAL --model idefics_80b_i
 torchrun --nproc-per-node=2 run.py --data GMAI-MMBench_VAL --model qwen_chat --verbose
 ```
 The evaluation results will be printed as logs, besides. **Result Files** will also be generated in the directory `$YOUR_WORKING_DIRECTORY/{model_name}`. Files ending with `.csv` contain the evaluated metrics.
+
 **TEST data evaluation**
 ```bash
 # When running with `python`, only one VLM instance is instantiated, and it might use multiple GPUs (depending on its default behavior).
