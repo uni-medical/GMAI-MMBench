@@ -26,7 +26,7 @@ git clone https://github.com/open-compass/VLMEvalKit.git
 cd VLMEvalKit
 pip install -e .
 ```
-**Evaluation**: You can run the evaluation using either `python` or `torchrun`. Here are some examples:
+**VLM data evaluation**: You can run the evaluation using either `python` or `torchrun`. Here are some examples:
 
 ```bash
 # When running with `python`, only one VLM instance is instantiated, and it might use multiple GPUs (depending on its default behavior).
@@ -48,7 +48,31 @@ torchrun --nproc-per-node=8 run.py --data GMAI-MMBench_VAL --model idefics_80b_i
 torchrun --nproc-per-node=2 run.py --data GMAI-MMBench_VAL --model qwen_chat --verbose
 ```
 The evaluation results will be printed as logs, besides. **Result Files** will also be generated in the directory `$YOUR_WORKING_DIRECTORY/{model_name}`. Files ending with `.csv` contain the evaluated metrics.
+**VLM data evaluation**
+```bash
+# When running with `python`, only one VLM instance is instantiated, and it might use multiple GPUs (depending on its default behavior).
+# That is recommended for evaluating very large VLMs (like IDEFICS-80B-Instruct).
 
+# IDEFICS-80B-Instruct on GMAI-MMBench_VAL, Inference and Evalution
+python run.py --data GMAI-MMBench_TEST --model idefics_80b_instruct --verbose
+
+# IDEFICS-80B-Instruct on GMAI-MMBench_VAL, Inference only
+python run.py --data GMAI-MMBench_TEST --model idefics_80b_instruct --verbose --mode infer
+
+# When running with `torchrun`, one VLM instance is instantiated on each GPU. It can speed up the inference.
+# However, that is only suitable for VLMs that consume small amounts of GPU memory.
+
+# IDEFICS-9B-Instruct, Qwen-VL-Chat, mPLUG-Owl2 on GMAI-MMBench_VAL. On a node with 8 GPU. Inference and Evaluation.
+torchrun --nproc-per-node=8 run.py --data GMAI-MMBench_TEST --model idefics_80b_instruct qwen_chat mPLUG-Owl2 --verbose
+
+# Qwen-VL-Chat on GMAI-MMBench_VAL. On a node with 2 GPU. Inference and Evaluation.
+torchrun --nproc-per-node=2 run.py --data GMAI-MMBench_TEST --model qwen_chat --verbose
+```
+Due to the test data not having the answer available, an error will occur after running. This error indicates that VLMEvalKit cannot retrieve the answer during the final result matching stage. 
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/37882a8b-4f3d-40f3-94b0-1f17b52ecc69/35618fd1-eb12-4070-933e-6b8d017dc97c/image.png)
+You can access the generated intermediate results from VLMEvalKit/outputs/<MODEL>. This is the content of the intermediate result Excel file, where the model's predictions are listed under "prediction."
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/37882a8b-4f3d-40f3-94b0-1f17b52ecc69/f37d14c0-8cd6-40b1-b4e5-46215347ae70/image.png)
+You will then need to send this Excel file via email to wangguoan@pjlab.org.cn. The email must include the following information: <Model Name>, <Team Name>, and <arxiv paper link>. We will calculate the accuracy of your model using the answer key and periodically update the leaderboard.
 **Supported models can be found in** [supported models](https://github.com/open-compass/VLMEvalKit/blob/main/vlmeval/config.py)
 
 **VLM Configuration**: All VLMs are configured in `vlmeval/config.py`, for some VLMs, you need to configure the code root (MiniGPT-4, PandaGPT, etc.) or the model_weight root (LLaVA-v1-7B, etc.) before conducting the evaluation. During evaluation, you should use the model name specified in `supported_VLM` in `vlmeval/config.py` to select the VLM. For MiniGPT-4 and InstructBLIP, you also need to modify the config files in `vlmeval/vlm/misc` to configure LLM path and ckpt path.
