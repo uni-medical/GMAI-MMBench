@@ -69,9 +69,9 @@ torchrun --nproc-per-node=8 run.py --data GMAI-MMBench_TEST --model idefics_80b_
 torchrun --nproc-per-node=2 run.py --data GMAI-MMBench_TEST --model qwen_chat --verbose
 ```
 Due to the test data not having the answer available, an error will occur after running. This error indicates that VLMEvalKit cannot retrieve the answer during the final result matching stage. 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/37882a8b-4f3d-40f3-94b0-1f17b52ecc69/35618fd1-eb12-4070-933e-6b8d017dc97c/image.png)
+![image1](image1.png)
 You can access the generated intermediate results from VLMEvalKit/outputs/<MODEL>. This is the content of the intermediate result Excel file, where the model's predictions are listed under "prediction."
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/37882a8b-4f3d-40f3-94b0-1f17b52ecc69/f37d14c0-8cd6-40b1-b4e5-46215347ae70/image.png)
+![image2](image2.png)
 You will then need to send this Excel file via email to wangguoan@pjlab.org.cn. The email must include the following information: <Model Name>, <Team Name>, and <arxiv paper link>. We will calculate the accuracy of your model using the answer key and periodically update the leaderboard.
 **Supported models can be found in** [supported models](https://github.com/open-compass/VLMEvalKit/blob/main/vlmeval/config.py)
 
