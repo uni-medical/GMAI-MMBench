@@ -72,7 +72,7 @@ Due to the test data not having the answer available, an error will occur after 
 ![image1](image1.png)
 You can access the generated intermediate results from VLMEvalKit/outputs/<MODEL>. This is the content of the intermediate result Excel file, where the model's predictions are listed under "prediction."
 ![image2](image2.png)
-You will then need to send this Excel file via email to wangguoan@pjlab.org.cn. The email must include the following information: <Model Name>, <Team Name>, and <arxiv paper link>. We will calculate the accuracy of your model using the answer key and periodically update the leaderboard.
+You will then need to send this Excel file via email to wangguoan@pjlab.org.cn. The email must include the following information: Model Name, Team Name, and arxiv paper link. We will calculate the accuracy of your model using the answer key and periodically update the leaderboard.
 **Supported models can be found in** [supported models](https://github.com/open-compass/VLMEvalKit/blob/main/vlmeval/config.py)
 
 **VLM Configuration**: All VLMs are configured in `vlmeval/config.py`, for some VLMs, you need to configure the code root (MiniGPT-4, PandaGPT, etc.) or the model_weight root (LLaVA-v1-7B, etc.) before conducting the evaluation. During evaluation, you should use the model name specified in `supported_VLM` in `vlmeval/config.py` to select the VLM. For MiniGPT-4 and InstructBLIP, you also need to modify the config files in `vlmeval/vlm/misc` to configure LLM path and ckpt path.
